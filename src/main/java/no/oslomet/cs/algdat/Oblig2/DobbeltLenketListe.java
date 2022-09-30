@@ -38,16 +38,40 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
-        throw new UnsupportedOperationException();
+        //Når vi kjører en test så får vi feilmelding på grunn av disse
+        // variablene var ikke definerte på DobbeltLenketListe metode!
+        hode = null;
+        hale = null;
+        antall = 0;
+        endringer = 0;
     }
 
     public DobbeltLenketListe(T[] a) {
-        Objects.requireNonNull(a);
-
+        //Kastes en NullPointerException
+        Objects.requireNonNull(a, "Tabellen a er null!");
+        //Går gjennøm liste og ta med bare verdiene som ikke er tomme...
         if (a.length>0){
-            for (int i = 0; i<a.length;i++){
+            int i;
+            for (i = 0; i<a.length;i++){
                 if (a[i] != null){
+                    //Setter hode peker til den første...
+                    hode = new Node<>(a[i]);
                     antall ++;
+                    break;
+                }
+            }
+            //hode og hale skal være like hvis listen har bare en eller null verdier...
+            hale = hode;
+            if (hode != null && a.length > 1){
+                i++;
+                for (;i<a.length;i++){
+                    if (a[i] != null){
+                        //Setter hale peker til den siste
+                        hale.neste = new Node<>(a[i], hale, null);
+                        //Setter neste også forrige riktige...
+                        hale = hale.neste;
+                        antall ++;
+                    }
                 }
             }
         }
