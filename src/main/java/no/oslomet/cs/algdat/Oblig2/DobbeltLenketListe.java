@@ -95,7 +95,36 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException();
+        //Nullverdier er ikke tillatt...
+        Objects.requireNonNull(verdi);
+        //en ny node med oppgitt verdi...
+        Node<T> enNode = new Node<>(verdi);
+        //tilfelle 1) at listen er tom...
+        if (antall == 0){
+            //her skal både hode og hale peker på den nye node...
+            hode = enNode;
+            hale = enNode;
+            antall++;
+            endringer++;
+            return true;
+        }
+        //tilfelle 2) at listen ikke er tom...
+        else{
+            //her skal hale endre seg etter innleggingen...
+            enNode.forrige=hale;//setter nodens forrige peker til hale...
+            hale.neste=enNode;//setter hales neste peker til noden...
+            hale = enNode;//og verdiene fra forrige og neste noden i
+                            // halen halen verdiene lik den nye noden...
+            antall++;
+            endringer++;
+            return true;
+        }
+        /*
+        antall++;
+        endringer++;
+        return true;
+
+         */
     }
 
     @Override
@@ -140,7 +169,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-        //Node<T> hode;
             Node<T> current = hode;
             StringBuilder sb = new StringBuilder();
             sb.append("[");
