@@ -78,8 +78,36 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     }
 
+    //fraTilKontroll-metode hentet fra Kompendiet programkode 1.2.3 a)
+    private void fratilKontroll(int antall, int fra, int til)
+    {
+        if (fra < 0)                                  // fra er negativ
+            throw new IndexOutOfBoundsException
+                    ("fra(" + fra + ") er negativ!");
+
+        if (til > antall)                          // til er utenfor tabellen
+            throw new IndexOutOfBoundsException
+                    ("til(" + til + ") > antall(" + antall + ")");
+
+        if (fra > til)                                // fra er større enn til
+            throw new IllegalArgumentException
+                    ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+    }
+
     public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException();
+        fratilKontroll(antall,fra,til);//sjekke fra og til...
+        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();//liste av en instans
+                                                        // av klassen DobbeltLenketListe
+        int lengde = til - fra;//lengden av liste, ingen (liste.lengde)...
+        if (lengde <1) return liste;//tomt intervall er lovlig...
+        Node<T> current = finnNode(fra);
+        //Liste ut listen ved hjelp av leggInn-metoden...
+        while (lengde >0){
+            liste.leggInn(current.verdi);
+            current = current.neste;
+            lengde--;
+        }
+        return liste;
     }
 
     @Override
@@ -164,6 +192,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
+        Objects.requireNonNull(nyverdi);
         indeksKontroll(indeks,false);//sjekkes indeksen før oppdatering...
         Node<T> enNode = finnNode(indeks);
         T verdi = enNode.verdi;//den gamle verdi skal erstattes med den nyeverdi
