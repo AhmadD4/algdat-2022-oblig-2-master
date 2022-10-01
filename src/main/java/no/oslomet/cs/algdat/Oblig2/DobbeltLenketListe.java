@@ -119,12 +119,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             endringer++;
             return true;
         }
-        /*
-        antall++;
-        endringer++;
-        return true;
-
-         */
     }
 
     @Override
@@ -137,9 +131,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
+    private Node<T> finnNode(int indeks){//Lages ny metode...
+        Node<T> enNode;
+        //sjekker indeksen for å bestemme hvordan skal den finnes...
+        if (indeks < antall/2){
+            enNode = hode;//starter fra hode og går mot høyre...
+            for (int i = 0; i<indeks;i++){
+                enNode = enNode.neste;
+            }
+            return enNode;
+        }
+        else{
+            enNode = hale;//starter fra hale og går mot venstre...
+            for (int i = antall-1;i>indeks;i-- ){
+                enNode = enNode.forrige;
+            }
+            return enNode;
+        }
+    }
+
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks,false);//sjekkes indeksen ved hjelp av
+                                            // indeksKontroll som arves fra Liste...
+        return finnNode(indeks).verdi;
     }
 
     @Override
@@ -149,7 +164,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks,false);//sjekkes indeksen før oppdatering...
+        Node<T> enNode = finnNode(indeks);
+        T verdi = enNode.verdi;//den gamle verdi skal erstattes med den nyeverdi
+        enNode.verdi = nyverdi;
+        endringer++;
+        return verdi;
     }
 
     @Override
