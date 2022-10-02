@@ -187,7 +187,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int indeksTil(T verdi) {
-        throw new UnsupportedOperationException();
+        if (verdi != null) {  //Sjekker at alle noder ikke lik null
+            for (int i = 0; i < antall; i++) { // Går inn i løkke og sjekker alle noder
+                T sjekk = hent(i); // Kaller på hent-metoden for å sjekke verdien
+
+                if (sjekk.equals(verdi)) return i; // if'n sjekker om verdien er lik den gitt verdi
+                                                    // og returnerer indeksen
+            }
+            // Returnerer -1 dersom verdien er null
+            return -1;
+        }
+        else{
+            return -1;
+        }
+
     }
 
     @Override
