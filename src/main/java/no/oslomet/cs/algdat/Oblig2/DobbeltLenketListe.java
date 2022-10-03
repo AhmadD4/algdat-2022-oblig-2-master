@@ -301,11 +301,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public Iterator<T> iterator() {
-        throw new UnsupportedOperationException();
+       return new DobbeltLenketListeIterator();
     }
 
     public Iterator<T> iterator(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks,false);
+        return new DobbeltLenketListeIterator(indeks);
     }
 
     private class DobbeltLenketListeIterator implements Iterator<T> {
@@ -320,17 +321,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         private DobbeltLenketListeIterator(int indeks) {
-            throw new UnsupportedOperationException();
+            denne = finnNode(indeks);//ved hjelp av finnNode() metode, vil den oppgitte indeksen
+                                     // hører til pekeren denne
+            fjernOK = false;  // blir sann når next() kalles
+            iteratorendringer = endringer;  // teller endringer
         }
 
         @Override
         public boolean hasNext() {
+
             return denne != null;
         }
 
         @Override
+        // først sjekker vi om iteratorendringer er lik endringer, hvis ikke får vi feilmelding.
         public T next() {
-            throw new UnsupportedOperationException();
+            if(iteratorendringer!=endringer)
+                throw new ConcurrentModificationException("iteratorendringer er ikke lik endringer");
+
+            if(!hasNext()) throw new NoSuchElementException(" Ingen verdier");
+
+               T tempverdi = denne.verdi;
+               denne = denne.neste;
+               fjernOK = true;
+            return tempverdi;
         }
 
         @Override
