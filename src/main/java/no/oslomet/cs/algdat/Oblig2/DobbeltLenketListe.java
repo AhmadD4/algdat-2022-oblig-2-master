@@ -251,7 +251,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
-        throw new UnsupportedOperationException();
+        //første måte:
+        Node<T> slett; //legger en node som skal være hode, der vi skal begynne fra
+        for (slett = hode; slett != null; slett = null){//ved hjelp av for-løkke skal
+                                            // slett går gjennom hele listen
+                                             // og gjøre dette til (null), så lenge listen ikke tom.
+            slett.verdi = null;
+            slett.forrige = slett.neste = null;
+        }
+        antall =0;
+        endringer ++;
     }
 
     @Override
@@ -340,10 +349,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 throw new ConcurrentModificationException("iteratorendringer er ikke lik endringer");
 
             if(!hasNext()) throw new NoSuchElementException(" Ingen verdier");
-
+            fjernOK = true;
                T tempverdi = denne.verdi;
                denne = denne.neste;
-               fjernOK = true;
+
             return tempverdi;
         }
 
