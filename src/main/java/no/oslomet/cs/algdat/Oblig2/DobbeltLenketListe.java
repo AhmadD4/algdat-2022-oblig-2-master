@@ -240,14 +240,66 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     @Override
-    public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
-    }
+        public boolean fjern(T verdi) {
+            if (verdi == null) return false;
+return true;
+        }
 
-    @Override
-    public T fjern(int indeks) {
-        throw new UnsupportedOperationException();
-    }
+        @Override
+        public T fjern(int indeks) {
+            indeksKontroll(indeks, false);  // false: indeks = antall er ulovlig
+            if (indeks < 0 || indeks > antall) {//sjekker hvis indeksen er negativ eller større enn antall noder i liste...
+                throw new IndexOutOfBoundsException();
+            }
+           if (antall == 0) { // Sjekker om tabellen er tom 1) sjekkeliste
+                throw new UnsupportedOperationException("Tabellen er tom!");
+            }
+
+                Node<T> gittIndeks = finnNode(indeks);
+
+           // 1) Dersom vi ønsker å slette første node
+                if (gittIndeks.forrige == null && gittIndeks.neste != null) {
+                    gittIndeks.neste = hode;
+                    hode = hode.neste;
+                    gittIndeks.equals(null);
+                    if (hode != null) {
+                        hode.forrige.equals(null);
+                    }
+                }
+              /* Må jobbes med den:
+               if (gittIndeks.neste != null && gittIndeks.forrige != null ){
+
+                   gittIndeks.forrige.neste == gittIndeks.neste;
+                   gittIndeks.neste.forrige == gittIndeks.forrige;
+
+                } */
+
+            /* Dette må slettes
+                if (indeks == antall) {
+                    gittIndeks.verdi.equals(null);
+                    gittIndeks.neste = hale;
+                    gittIndeks.forrige = hale.forrige;
+                }
+
+                if (antall == 1 && indeks == 0) {
+                    hale = hode = null;
+                }
+                if (antall == 2) {
+                    gittIndeks.verdi.equals(null);
+                    gittIndeks.neste = hale;  // [1, 436]
+                    gittIndeks.forrige = hode;
+
+                }
+*/
+
+            antall--;
+            endringer++;
+            return gittIndeks.verdi;
+            }
+
+
+
+
 
     @Override
     public void nullstill() {
