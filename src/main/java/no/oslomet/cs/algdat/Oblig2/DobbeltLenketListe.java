@@ -4,9 +4,7 @@ package no.oslomet.cs.algdat.Oblig2;
 ////////////////// class DobbeltLenketListe //////////////////////////////
 
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -151,7 +149,33 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(verdi);//sjekker verdien...
+        if (indeks < 0 || indeks > antall){//sjekker hvis indeksen er negativ eller større enn antall noder i liste...
+            throw new IndexOutOfBoundsException();
+        }
+        else{
+            if (antall == 0){//tilfelle 1) at listen er tom...
+                hode = hale = new Node<T>(verdi,null, null);
+            }
+            else if(indeks == 0){//tilfelle 2) at verdien skal legges først...
+                hode = new Node<T>(verdi,null,hode);
+                hode.neste.forrige=hode;//bytter hode sin plass til noden...
+            }
+            else if (indeks == antall){//tilfelle 3) at verdien skal legges bakerst...
+                hale = new Node<T>(verdi,hale,null);
+                hale.forrige.neste = hale;//bytter hale sin plass til noden...
+            }
+            else {//tilfelle 4) at verdien skal legges mellom to andre verdier i listen...
+                Node<T> node = hode;
+
+                for (int i = 0; i < indeks; i++) node = node.neste; {
+                    node = new Node<T>(verdi, node.forrige, node);
+                }
+                node.neste.forrige = node.forrige.neste = node;
+            }
+            antall ++;
+            endringer++;
+        }
     }
 
     @Override
