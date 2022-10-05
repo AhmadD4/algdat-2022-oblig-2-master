@@ -443,6 +443,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         } // class DobbeltLenketListeIterator
 
     }
+
+    // Denen metoden skal sortere listen ved hjelp av komparatoren c.
+    // Målet  er  å  få  metoden  til  å  virke at  den  sorterer  korrekt.
+    // Hvis liste.tom(), så return.
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
         if (liste.tom()) return;
         for (int i = 0; i < liste.antall(); i++) {
