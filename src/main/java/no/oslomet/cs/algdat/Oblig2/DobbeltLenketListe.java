@@ -327,48 +327,47 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-            Node<T> current = hode;//begynner fra venstre (hode) til hale...
-            StringBuilder bygg = new StringBuilder(); //Bygger opp tegnstrengen...
-            bygg.append("[");//listen skal alltid begynne fra "["...
+            Node<T> current = hode;
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
 
-            if (tom()) {//kall på tom() metode i tilfelle listen er tom...
-                bygg.append("]");
-                return bygg.toString(); //metoden skal retunere [] hvis listen er tom
+            if (tom()) {
+                sb.append("]");
+                return sb.toString(); //metoden skal retunere [] hvis listen er tom
             } else {
-                bygg.append(current.verdi);//definerer verdien til oppbygningen for hver node...
-                current = current.neste;//går fra hode til hale ved hjelp av neste pekeren...
-                while (current != null) {//gjør dette igjen så lenge listen er ikke tom...
-                    bygg.append(", ");
-                    bygg.append(current.verdi);
+                sb.append(current.verdi);
+                current = current.neste;
+                while (current != null) {
+                    sb.append(", ");
+                    sb.append(current.verdi);
                     current = current.neste;
                 }
             }
-            bygg.append("]");//slutt
+            sb.append("]");
 
-            return bygg.toString();
+            return sb.toString();
     }
 
     public String omvendtString() {
-        //samme som i toString() metode men i omvendt, altså skal begynne fra sist, hale...
-            Node<T> current = hale;// begynner fra halen
-            StringBuilder bygg = new StringBuilder();
-            bygg.append("[");
+            Node<T> current = hale;
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
 
             if (tom()) {
-                bygg.append("]");
-                return bygg.toString();
+                sb.append("]");
+                return sb.toString();
             } else {
-                bygg.append(current.verdi);
-                current = current.forrige;//her går gjennom listen ved hjelp av forrige pekeren...
+                sb.append(current.verdi);
+                current = current.forrige;
                 while (current != null) {
-                    bygg.append(", ");
-                    bygg.append(current.verdi);
+                    sb.append(", ");
+                    sb.append(current.verdi);
                     current = current.forrige;
                 }
             }
-            bygg.append("]");
+            sb.append("]");
 
-            return bygg.toString();
+            return sb.toString();
         }
 
     @Override
@@ -438,15 +437,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     hode = hode.neste; hode.forrige = null;
                 }
             }
-            else if (p == hale){ hale = hale.forrige; hale.neste = null;}  // fjerner den siste
-            else{
-                p.forrige.neste = p.neste;
-                p.neste.forrige = p.forrige;    // fjerner p
+            // den siste skal fjernes
+            else if (p == hale){ hale = hale.forrige;
+                hale.neste = null;}
+            else { //
+                p.forrige.neste = p.neste;      // Peker fra nest siste peker til siste peker
+                p.neste.forrige = p.forrige;   //Peker fra nest siste peker til siste peker
             }
-
-            antall--;            // en mindre i listen
+            antall--;
+            endringer++;
             iteratorendringer++;
-            endringer++;         // en endring
 
 
         } // class DobbeltLenketListeIterator
