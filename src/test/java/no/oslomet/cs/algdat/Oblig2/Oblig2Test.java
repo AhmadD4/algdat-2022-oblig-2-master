@@ -618,7 +618,7 @@ class Oblig2Test {
                         ("Oppgave 5f: Det kastes feil type unntak for null-verdier!");
                 antallFeil++;
             }
-        }
+          }
 
         liste = new DobbeltLenketListe<>();
 
