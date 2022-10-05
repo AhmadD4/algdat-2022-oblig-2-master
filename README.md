@@ -36,7 +36,12 @@ I oppgave 7, Her brukte jeg først første måte, som det sier på oppgaven at d
 
 I oppgave 8 ...
 
-I oppgave 9 ...
+I oppgave 9, helt på starten opprettet vi de to Exceptions som blir kastet for de to tilfellene som vi ble bedt om i oppgaven. 
+Fikk hjelp og hentet de fra programkoden i kmopendiet 3.2.5 e).
+Videre i oppgaven setter vi en peker til hode og sjekker deretter for å oppfylle første tilfelle og fjerne første og eneste verdi.
+Videre fjerner vi siste verdi, og etter det fjerner vi verdien som ligger i midten ved hjelp av pekeren _peker_ som peker ignorer
+den noden vi ønsker å fjerne også kobler de to andre på begge sidene. Fikk litt insperasjon fra forelesningsnotatene ved hjelp av p,q,r eksempelet.
+Til slutt reduserer vi antall elementene og plusser en endring og iteratorendring slik at de blir like som det ble spurt om i oppgaven.
 
 I oppgave 100 ...
 
