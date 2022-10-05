@@ -323,7 +323,7 @@ return true;
 
             if (tom()) {
                 sb.append("]");
-                return sb.toString();
+                return sb.toString(); //metoden skal retunere [] hvis listen er tom
             } else {
                 sb.append(current.verdi);
                 current = current.neste;
@@ -386,7 +386,7 @@ return true;
                                      // hører til pekeren denne
             fjernOK = false;  // blir sann når next() kalles
             iteratorendringer = endringer;  // teller endringer
-        }
+        }  
 
         @Override
         public boolean hasNext() {
@@ -417,7 +417,17 @@ return true;
     } // class DobbeltLenketListeIterator
 
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-      
+        if (liste.tom()) return;
+        for (int i = 0; i < liste.antall(); i++) {
+            for (int j = 0; j < liste.antall(); j++) {
+                if ((c.compare(liste.hent(i), liste.hent(j))) < 0)
+                {
+                    T tempVerdi = liste.hent(i);
+                    liste.oppdater(i,liste.hent(j));
+                    liste.oppdater(j,tempVerdi);
+                }
+            }
+        }
     }
 
 } // class DobbeltLenketListe
