@@ -437,7 +437,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     hode = hode.neste; hode.forrige = null;
                 }
             }
-
+            // den siste skal fjernes
+            else if (p == hale){ hale = hale.forrige;
+                hale.neste = null;}
+            else { //
+                p.forrige.neste = p.neste;      // Peker fra nest siste peker til siste peker
+                p.neste.forrige = p.forrige;   //Peker fra nest siste peker til siste peker
+            }
+            antall--;
+            endringer++;
+            iteratorendringer++;
 
 
         } // class DobbeltLenketListeIterator

@@ -25,3 +25,4 @@ I fjern(indeks) hadde vi laget en variabel som tar inn indeksen og finner noden 
 I løpet av hele koden sørget vi for å sjekke om at noden som skal slettes kommer først, midt- eller bakerst i tabllen.
 på slutten plusser vi antall endringer og tar en minus fra antall elementene i tabellen. Veriden til _gittIndeks_ blir returnert til slutt. også får vi true.
 
+I oppgave 9, lager vi metoden remove() i iteratorklassen. Vi skal bruke metoden til å fjerne noden i forhold til nodens sin plass i tabellen.
