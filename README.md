@@ -34,7 +34,7 @@ på slutten plusser vi antall endringer og tar en minus fra antall elementene i 
 
 I oppgave 7, Her brukte jeg først første måte, som det sier på oppgaven at den skal begynne fra hode og går videre ved hjelp av pekeren neste. den ble kjørt på 22ms tid. Så fikk vi 19 ms på tiden på andre måte, da vi kallet fjern(0) metode. Mindre enn 5 ms fra den første metode, vanlig nullstille...
 
-I oppgave 8 ...
+I oppgave 8 er det snakk om iterator klasse, den er ferdig kodet, men vi har lagt Next() metode som gjøre at endringer skal være samme som iteratorEndringer, denne pekeren skal går gjennom listen, og den sjekkes listen. I iterator() metoden skal den returnere en instans av iteratorKlassen. I DobbeltLenketListeIterator(int  indeks) metode skal  sette pekeren denne til den noden som hører til den oppgitte indeksen. Og i iterator(int  indeks) metode skal sjekke indeksen og returnere en instatns av iterator klassen.
 
 I oppgave 9, helt på starten opprettet vi de to Exceptions som blir kastet for de to tilfellene som vi ble bedt om i oppgaven. 
 Fikk hjelp og hentet de fra programkoden i kmopendiet 3.2.5 e).
