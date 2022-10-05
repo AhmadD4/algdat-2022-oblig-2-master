@@ -403,11 +403,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 throw new ConcurrentModificationException("iteratorendringer er ikke lik endringer");
 
             if(!hasNext()) throw new NoSuchElementException(" Ingen verdier");
+            // hvis hasNext() ikke er sann, så settes vi fjernOk til sann
             fjernOK = true;
                T tempverdi = denne.verdi;
                denne = denne.neste;
 
-            return tempverdi;
+            return tempverdi; // her returneres verdien til denne
         }
 
         @Override
@@ -418,7 +419,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     } // class DobbeltLenketListeIterator
 
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        throw new UnsupportedOperationException();
+      
     }
 
 } // class DobbeltLenketListe
