@@ -305,14 +305,22 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
-        //første måte:
         Node<T> slett; //legger en node som skal være hode, der vi skal begynne fra
+        /*
+        //første måte:
         for (slett = hode; slett != null; slett = null){//ved hjelp av for-løkke skal
                                             // slett går gjennom hele listen
                                              // og gjøre dette til (null), så lenge listen ikke tom.
             slett.verdi = null;
             slett.forrige = slett.neste = null;
         }
+        //her fikk vi 24 ms på tiden
+         */
+        //andre måte:
+        for (slett = hode; slett != null; slett = null){
+            fjern(0);
+        }
+        //her fikk vi 19 ms på tiden, så er den mer effektiv enn første måte, og er derfor i brukt...
         antall =0;
         endringer ++;
     }
