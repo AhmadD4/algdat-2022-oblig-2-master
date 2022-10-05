@@ -421,11 +421,28 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException();
-        }
+            Node<T> p = (denne == null ? hale : denne.forrige);
+            if (iteratorendringer != endringer) throw new
+                    ConcurrentModificationException("Listen er endret!"); // Exception som blir kastes dersom endringer og iteratorendringer er forskjellige
 
-    } // class DobbeltLenketListeIterator
+            if (!fjernOK) throw
+                    new IllegalStateException("Ulovlig kall!"); // Exception som blir sendt dersom det ikke er tillatt å kalle denne metoden
 
+            fjernOK = false;  // hentet fra kmop. 3.2.5 e)
+
+            if (p == hode) {
+                if (antall == 1) { // den som skal fjernes er eneste verdi
+                    hode = hale = null;
+                }   else  { // den første skal fjernes
+                    hode = hode.neste; hode.forrige = null;
+                }
+            }
+
+
+
+        } // class DobbeltLenketListeIterator
+
+    }
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
       
     }

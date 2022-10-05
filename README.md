@@ -18,3 +18,10 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 I oppgave 1 så gikk vi frem ved å ...
 
 I oppgave 2 så brukte vi en ... til å ...
+
+I oppgave 6, bruker vi to metoder. _fejern(indeks)_ Som tar imot en indeks og skal fjerne noden(verdien) og returnere verdien samtidig.
+og metoden boolean _fjern(verdi)_ som sjekker om at verdien i tabellen blir slettet og returnerer true dersom det skjer, og returnerer fals ellers.
+I fjern(indeks) hadde vi laget en variabel som tar inn indeksen og finner noden ved hjelp av finnNode(verdien) metoden som finner verdien til noden.
+I løpet av hele koden sørget vi for å sjekke om at noden som skal slettes kommer først, midt- eller bakerst i tabllen.
+på slutten plusser vi antall endringer og tar en minus fra antall elementene i tabellen. Veriden til _gittIndeks_ blir returnert til slutt. også får vi true.
+
