@@ -23,11 +23,7 @@ Warnings
 1- (linje 117) Vi hadde en warning som foreslår å endre if'n i tom(), dette synes vi er unødvendig,
 oog valgt å hadde samme som det ble spurt om i oppgaven.
 
-2- (linjene 156, 158, 161 og 168) Intellij foreslår om å bytte datatypen <T> med <>,
-dette er mest sannsynlig fordi at vi ikke har noen verdeier der og dermed får ikke
-programmet vite hva datatypen her skal være.
-
-3- (linje 179) Vi hadde en warning som foreslår å endre if'n i tom(), dette synes vi er unødvendig,
+2- (linje 179) Vi hadde en warning som foreslår å endre if'n i tom(), dette synes vi er unødvendig,
 oog valgt å hadde samme som det ble spurt om i oppgaven.
 _________________________________
 
@@ -35,7 +31,7 @@ _________________________________
 
 I oppgave 1 Først nullstilte DobbeltLenketListe() metoden slik at testet kjøres riktig. Så skal den kjekke om listen er tom, har bare en verdi eller har flere og skal kjøres riktig for hode og hale, neste og forrige, og skal tas med bare som er ikke tomme vedier på listen...
 
-I oppgave 2 Her blir leggInn metoden kjørt, den skal legge ny verdi til listen. Først sjekker at verdien som legges inn ikke er tom, så skal den sjekkes antall verdier til listen, om det er tom liste eller eksisterte noe verdier i listen. I tom listen skal både hode og hale peker til den nye veriden. Hvis det eksisterte noe verdier før skal hale endres. Antall og endriner endres.
+I oppgave 2 Her blir leggInn metoden kjørt, den skal legge ny verdi til listen. Først sjekker at verdien som legges inn ikke er tom, så skal den sjekkes antall verdier til listen, om det er tom liste eller eksisterte noe verdier i listen. I tom listen skal både hode og hale peker til den nye veriden. Hvis det eksisterte noe verdier før skal hale endres. Antall og endriner endres. Vi har fått litt hjelp fra andre for både toString og omvendtString metoder...
 
 I oppgave 3, 3a) laget ny finneNode metode, den skal finne posisjonen til en gitt verdi. Så hent-metoden, den skal finne verdien til en gitt indeks, og skal sjekkes indeksen ved hjelp av Liste. Så oppdater-metoden, den skal erstatte en verdi med en gitt nyverdi på en gitt indeks.
 I 3b) Det ble tatt fratilKontroll-metoden fra Kompendiet og brukes på subListe-metode, for å sjekke fra og til. I subListe-metode returneres listen fra en gitt til en gitt intervall, ved hjelp både finnNode og leggInn- metoder. Tomt intervallet er lovlige...
@@ -61,5 +57,5 @@ Videre fjerner vi siste verdi, og etter det fjerner vi verdien som ligger i midt
 den noden vi ønsker å fjerne også kobler de to andre på begge sidene. Fikk litt insperasjon fra forelesningsnotatene ved hjelp av p,q,r eksempelet.
 Til slutt reduserer vi antall elementene og plusser en endring og iteratorendring slik at de blir like som det ble spurt om i oppgaven.
 
-I oppgave 100 ...
+I oppgave 10, begynte vi med sjekking av listen er tom eller ikke. Så laget vi to for-løkker for å kompare hver to noder i komparator klassen, og vi laget en funksjon som returnerer > 0 om liste[j] > liste[i], 0 om liste[j] == liste[i], og < 0 om liste[j] < liste[i]. Så flytter den plassen, akkurat som Bubble sort... 
 
