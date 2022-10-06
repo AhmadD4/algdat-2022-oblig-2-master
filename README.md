@@ -20,6 +20,15 @@ Vi hadde en slik oppgave fordeling:
 ________________________________
 Warnings
 
+1- (linje 117) Vi hadde en warning som foreslår å endre if'n i tom(), dette synes vi er unødvendig,
+oog valgt å hadde samme som det ble spurt om i oppgaven.
+
+2- (linjene 156, 158, 161 og 168) Intellij foreslår om å bytte datatypen <T> med <>,
+dette er mest sannsynlig fordi at vi ikke har noen verdeier der og dermed får ikke
+programmet vite hva datatypen her skal være.
+
+3- (linje 179) Vi hadde en warning som foreslår å endre if'n i tom(), dette synes vi er unødvendig,
+oog valgt å hadde samme som det ble spurt om i oppgaven.
 _________________________________
 
 # Oppgavebeskrivelse
