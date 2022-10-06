@@ -9,8 +9,14 @@ Oppgaven er levert av følgende studenter:
 # Arbeidsfordeling
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
+Selv om vi hadde delt opp oppgavene, så sørget vi til at alle oss tre skal delta i alle oppgavene, først er det fordi nesten alle oppgavene er linket sammen.
+Og for det andre er det fordi at vi skal skjønne inneholde og ikke gå glipp av noe å lære.
+Vi hadde en slik oppgave fordeling:
+* Mouaz hadde hoved ansvar for oppgavene 4, 6 og 9
+* Ahmaad hadde hoved ansvaret for 1,2,3 og 5
+* Mohanad hadde hoved ansvar for 7,8 og 10
+* Vi har løst alle oppgavene i samarbeid
 
-Oppgavefordeling
 ________________________________
 Warnings
 
